@@ -1,0 +1,318 @@
+<!--The HTML element is everything from the start tag to the end tag:-->
+
+<!DOCTYPE html> <!--Definierar dokumenttypen och versionen av HTML som används. Här är det HTML5.-->
+
+<html lang="en"> <!-- HTML:element is the root element of an HTML page, lan=language -->
+
+<head> <!-- element contains meta information about the HTML page-->
+
+    <meta charset="UTF-8"> <!-- standardaen, element contains meta information about the HTML page-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Så att det är innanför ramen-->
+
+    <title>DVA231-LAB2</title> <!-- Title för HTML page, synns på flink-->
+
+    <link rel="stylesheet" href="styles.css"> <!--referar till css filen -->
+
+</head>
+
+
+
+<body> <!--element defines the document's body. Vad som syns på hemsidan -->
+
+
+
+
+    <a href="https://your-link.com" target="_blank">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRubCriSmlaQ47ORyxiDd6pCQW3hcTN3SXA1sP825CLozr4M8wq"
+            alt="Icon" class="top-right-image">
+        <!--a href är vad som sker när man klickar på den. Lilla bilden uppe i hörnet brevid search-->
+    </a>
+
+    <div class="container"> <!-- Anropar på klassen som finns i css filen-->
+
+
+
+        <div class="header"> <!-- Header Section. En container-div som omger hela innehållet på sidan.-->
+
+            <div class="logo">RT</div>
+
+            <div class="nav"> <!--Navigationssektionen med länkar och en sökruta.-->
+
+                <div class="links-grid"> <!-- First row of links -->
+                    <div class="top-links">
+                        <a href="https://www.google.com">Link 1</a> |
+                        <a href="#">Link 2</a> |
+                        <a href="#">Link 3</a> |
+                        <a href="#">Link 4</a> |
+                        <a href="#">Link 5</a> |
+                        <a href="#">Link 6</a> |
+                        <a href="#">Link 7</a>
+                        <input type="text" placeholder="Search">
+                    </div>
+
+
+
+                    <div class="bottom-links"> <!-- Second row of links -->
+                        <a href="#">Link 1</a> |
+                        <a href="#">Link 2</a> |
+                        <a href="#">Link 3</a> |
+                        <a href="#">Link 4</a> |
+                        <a href="#">Link 5</a>
+                        <a href="#">Link 6</a> |
+                        <a href="#">Link 7</a> |
+                        <a href="#">Link 8</a> |
+                        <a href="#">Link 9</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="main-content"> <!--Main Content Section. Detta är en container som kapslar in alla 
+            dess barn (dvs. de olika box-elementen). Denna container används för att strukturera och 
+            styla huvudinnehållet på sidan.-->
+
+            <!-- För box 2. -->
+            <div class="box secound-box" style="background-image: url('');">
+                <span>
+                    <p id="headline"> <!-- Titel -->
+                        <span id="pWhiteBlue">Loding...</span>
+                        <!-- Dynamiskt innehåll, Loding... blir vad som finns i JSon filen -->
+                    </p>
+                </span>
+                <span>
+                    <p id="headlinen"> <!-- Innehåll -->
+                        <span id="pBlackWhite">Loding...</span> <!-- Dynamiskt innehåll -->
+                    </p>
+                </span>
+            </div>
+
+            <script>
+                let currentIndex = 0; /*Index för aktuell nyhet*/
+                let newsData = []; /*Array för nyhetsdata*/
+
+                /*Funktion för att hämta data från JSON-filen*/
+
+                function fetchNews() {
+                    fetch('NewsText/Ass2News.json') /*Vart ligger JSON-filen*/
+                        .then(response => response.json())
+                        .then(data => {
+                            newsData = data.box_2_news; /*Spara nyherna från JSON filen till en array*/
+                            updateHeadlines();
+                            setInterval(updateHeadlines, 5000); /*Intervall för visa nyhterna*/
+                        })
+                        /*Fel kod om inte kan hämta JSON*/
+                        .catch(error => console.error('Could not get news', error));
+                }
+
+                /*Funktion för att uppdatera nyheter*/
+                function updateHeadlines() {
+                    const box2_titelElement = document.getElementById("pWhiteBlue");
+                    const box2_contentElement = document.getElementById("pBlackWhite");
+                    const box2_backgroundImg = document.querySelector(".secound-box");
+
+                    if (newsData.length > 0) {
+
+                        box2_titelElement.innerHTML = newsData[currentIndex].title;  /* Hämta titeln,text och bild från Json filen*/
+                        box2_contentElement.innerHTML = newsData[currentIndex].content;
+
+                        box2_backgroundImg.style.backgroundImage = `url('${newsData[currentIndex].imgurl}')`;
+
+
+                        /* Öka index för nästa nyhet och loppar tillbaka till början*/
+                        currentIndex = (currentIndex + 1) % newsData.length;
+                    }
+                }
+                /*Hämta data när sidan laddas*/
+
+                document.addEventListener('DOMContentLoaded', fetchNews);
+            </script>
+
+
+
+
+            <!--För box 3.-->
+            <div class="box third-box">
+
+                <script>
+                    // Hämta data från JSON-fil
+                    fetch('NewsText/Ass2News.json')
+                        .then(response => response.json())  // Omvandla till JSON
+                        .then(json => {
+                            // Hämta första objektet från "box_3 i JSON-filen
+                            const box3 = json["box_3"][0];
+            
+                            // Hitta HTML-elementen som skall refferas till
+                            const box3_titleElement = document.querySelector('.third-box h3'); 
+                            const box3_contentElement = document.querySelector('.third-box-list'); 
+                                                       
+            
+                            // Uppdatera h3-texten, p-elementet i boxen med json filens värde
+                            box3_titleElement.textContent = box3.title; 
+                            box3_contentElement.textContent = box3.content; 
+                            
+            
+                       
+                        })
+                        .catch(error => console.error('Error could not connect to server:', error));
+                </script>
+
+
+                <h3>Grocery list<br> </h3>
+                <br>
+                <hr>
+                <br>
+                <ul class="third-box-list">
+                    <li>Milk</li>
+                    <li>Wheat</li>
+                    <li>Egg</li>
+                    <li>Salt</li>
+                    <li>Jam</li>
+                    <li>Whip cream</li>
+
+                </ul>
+                <br>
+                <hr>
+                <br>
+                <div class="third-box-links" align-items: center;>
+                    <a href="https://www.google.com">Link 1</a>
+                    <a href="#">Link 2</a>
+                </div>
+            </div>
+
+
+
+
+            <!--För box 4-->
+            <div class="box four-box" style="background-image: url('');">
+                <script>
+                    // Hämta data från JSON-fil
+                    fetch('NewsText/Ass2News.json')
+                        .then(response => response.json())  // Omvandla till JSON
+                        .then(json => {
+                            // Hämta första objektet från "box_4" i JSON-filen
+                            const box4 = json["box_4"][0];
+            
+                            // Hitta HTML-elementen som skall refferas till
+                            const box4_titleElement = document.querySelector('.four-box p'); 
+                            const box4_contentElement = document.querySelector('.four-box_box_to_cover p'); 
+                            const box4_contentCoverElement = document.querySelector('.four-box_cover-box p'); // Hitta paragrafen inuti four-box_cover-box
+                            const box4_backgroundImage = document.querySelector('.four-box'); // Hitta boxen
+            
+                            // Uppdatera h3-texten, p-elementet och bakgrundsbilden med värden från box_4
+                            box4_titleElement.textContent = box4.title; // Uppdatera text från JSON för titel
+                            box4_contentElement.textContent = box4.content; // Uppdatera text från JSON för content
+                            box4_contentCoverElement.textContent = box4.content_cover; // Uppdatera text från JSON för content_cover
+            
+                            // Ställ in bakgrundsbilden
+                            box4_backgroundImage.style.backgroundImage = `url('${box4.imgurl}')`;
+                        })
+                        .catch(error => console.error('Error could not connect to server:', error));
+                </script>
+
+                              
+                <span><p id="pWhiteBlue">Step to make pankake </p><span></span>
+                     <div class="four-box_box_to_cover">
+                    <p id="pBlackWhite">Pour half the milk and all the wheat</p>
+                    <div class="four-box_cover-box">
+                        <p>Mix until smooth batter</p>
+                    </div>
+                </div>
+                         
+            </div>
+
+
+
+
+            <!-- För box 5 -->
+            <div class="box five-box" style="background-image: url('');">
+                <script>
+                    /* Hämta data från JSON-fil */
+                    fetch('NewsText/Ass2News.json')
+                        .then(response => response.json())  // Omvandla till JSON
+                        .then(json => {
+                            /* Hämta första objektet från "box 5" i Json-filen */
+                            const box5 = json["box_5"][0];
+
+                            /* Hitta HTML-elementen som skall refferas till */
+                            const box5_titleElement = document.querySelector('.five-box h3');
+                            const box5_contentElement = document.querySelector('.five-box p');
+                            const box5backgroundImage = document.querySelector('.five-box');
+
+                            /* Uppdatera h3-texten, p-elementet och bakgrundsbilden med värden från box5 */
+                            box5_titleElement.textContent = box5.title;
+                            box5_contentElement.textContent = box5.content;
+
+                            /* Ställ in bakgrundsbilden så att den täcker halva rutan */
+                            box5backgroundImage.style.backgroundImage = `linear-gradient(to right, transparent 50%, white 50%), url('${box5.imgurl}')`;
+
+                        })
+                        .catch(error => console.error('Error could not connect to server:', error));
+                </script>
+
+                <!-- HTML för innehållet som uppdateras från JSON-filen -->
+                <h3 style="color: #008cff;">Loding...</h3>
+                <span>
+                    <br>
+                    <p id="pBlackWhite">Loding...</p>
+                </span>
+                <div class="five-box-links">
+                    <a style="color: #008cff;" href="https://www.google.com">Link 1</a>
+                    <a style="color: #008cff;" href="#">Link 2</a>
+                </div>
+            </div>
+
+
+
+
+
+            <!--För box 6, video-->
+            <div class="box sixth-box">
+                <video class="video_box" controls>
+                    <source src="Media/mp4/video_fil.mp4" type="video/mp4">
+                    Din webbläsare kan inte spela upp videon.
+                </video>
+            </div>
+
+
+
+
+            <!--För box 7-->
+            <div class="box seven-box" style="background-image: url('');">
+                <script>
+                    /* Hämta data från JSON-fil */
+                    fetch('NewsText/Ass2News.json')
+                        .then(response => response.json())  // Omvandla till JSON
+                        .then(json => {
+                            /* Hämta första objektet från "box 7" i Json-filen */
+                            const box7 = json["box_7"][0];
+
+                            /* Hitta HTML-elementen */
+
+                            const box7_backgroundImage = document.querySelector('.seven-box');
+
+
+                            /* Ställ in bakgrundsbilden*/
+                            box7_backgroundImage.style.backgroundImage = `url('${box7.imgurl}')`;
+                        })
+                        .catch(error => console.error('Error could not connect to server:', error));
+                </script>
+            </div>
+
+
+
+            <!--För box 8, twitter-->
+            <div class="box eight-box"> <a class="twitter-timeline"
+                    href="https://twitter.com/elonmusk?ref_src=twsrc%5Etfw">Tweets by elonmusk</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

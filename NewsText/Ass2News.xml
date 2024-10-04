@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<News>
+    <NewsPiece>
+        <Title>SpaceX's Next Starship Prototype Taking Shape</Title>
+        <ImgUrl>#### USE YOU OWN IMAGE URL ###</ImgUrl>
+        <Content>Construction of the test craft is proceeding apace, as two new photos posted on Twitter today (Sept. 17) by company founder and CEO Elon Musk reveal.</Content>
+    </NewsPiece>
+    <NewsPiece>
+        <Title>NASA's Juno Mission Cheks Out Eclipse on Jupiter</Title>
+        <ImgUrl>#### USE YOU OWN IMAGE URL ###</ImgUrl>
+        <Content>All is well on our largest neighbor; NASA's Juno spacecraft just managed to spot the shadow of Jupiter's moon, Io, passing over its marbled clouds.</Content>
+    </NewsPiece>
+    <NewsPiece>
+        <Title>Europe Wants Ideas for Cave-Spelumking Moon Robots</Title>
+        <ImgUrl>#### USE YOU OWN IMAGE URL ###</ImgUrl>
+        <Content>As NASA makes a big push to land humans on the moon's surface by 2024, the European Space Agency (ESA) wants to learn more about the lunar caves that lie beneath.</Content>
+    </NewsPiece>
+</News>

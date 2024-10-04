@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Titel 1",
+        "imgurl": "url_till_bild1.jpg",
+        "content": "Innehåll för artikel 1"
+    },
+    {
+        "title": "Titel 2",
+        "imgurl": "url_till_bild2.jpg",
+        "content": "Innehåll för artikel 2"
+    },
+    {
+        "title": "Titel 3",
+        "imgurl": "url_till_bild3.jpg",
+        "content": "Innehåll för artikel 3"
+    },
+    {
+        "title": "Titel 4",
+        "imgurl": "url_till_bild4.jpg",
+        "content": "Innehåll för artikel 4"
+    },
+    {
+        "title": "Titel 5",
+        "imgurl": "url_till_bild5.jpg",
+        "content": "Innehåll för artikel 5"
+    }
+]

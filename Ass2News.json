@@ -1,0 +1,45 @@
+{
+    "box_2_news": [
+        {
+            "title": "SpaceX's Next Starship Prototype Taking Shape ",
+            "imgurl": "https://cdn.mos.cms.futurecdn.net/n3pohUALzfsFsSXvEtwEfR-650-80.jpg.webp",
+            "content": "Construction of the test craft is proceeding apace, as two new photos posted on Twitter today (Sept. 17) by company founder and CEO Elon Musk reveal."
+        },
+        {
+            "title": "NASA's Juno Mission Cheks Out Eclipse on Jupiter",
+            "imgurl": "https://cdn.mos.cms.futurecdn.net/uSqNJKriqfBs9GWsCznvuk-650-80.jpg.webp",
+            "content": "All is well on our largest neighbor; NASA's Juno spacecraft just managed to spot the shadow of Jupiter's moon, Io, passing over its marbled clouds."
+        },
+        {
+            "title": "Europe Wants Ideas for Cave-Spelumking Moon Robots",
+            "imgurl": "https://cdn.mos.cms.futurecdn.net/AA6XuPygDcstf3QfNk9Fvh-1200-80.jpg",
+            "content": "As NASA makes a big push to land humans on the moon's surface by 2024, the European Space Agency (ESA) wants to learn more about the lunar caves that lie beneath."
+        }
+    ],
+    "box_3": [
+        {
+            "title": "I LOVE PANNCAKES",            
+            "content": "PANNCAKES <3"
+        }
+    ],
+    "box_4": [
+        {
+            "title": "I LOVE PANNCAKES",
+            "imgurl": "https://cdn.mos.cms.futurecdn.net/uSqNJKriqfBs9GWsCznvuk-650-80.jpg.webp",
+            "content": "HUR gör jag pankakkor",
+            "content_cover": "PANNCAKES <3 "
+        }
+    ],
+    "box_5": [
+        {
+            "title": "I LOVE PANCAKES",
+            "imgurl": "https://cdn.mos.cms.futurecdn.net/uSqNJKriqfBs9GWsCznvuk-650-80.jpg.webp",
+            "content": "PANNCAKES <3"
+        }
+    ],
+    "box_7": [
+        {
+            "imgurl": "https://cdn.mos.cms.futurecdn.net/uSqNJKriqfBs9GWsCznvuk-650-80.jpg.webp"
+        }
+    ]
+}
